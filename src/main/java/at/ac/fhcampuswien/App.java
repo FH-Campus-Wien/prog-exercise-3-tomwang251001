@@ -126,10 +126,30 @@ public static String camelCase(String input) {
             text[i] = 32;
 
     String output = String.valueOf(text).replaceAll(" ","");
-    return output;
 
+    return output;
 }
 
+
+public static int checkDigit(int[] code) {
+
+    int sum = 0;
+    int product;
+
+    for (int i = 0; i < code.length; i++) {
+        product = code[i] * (i + 2);
+        sum += product;
+    }
+    int mod = sum % 11;
+    int checkDigit = 11-mod;
+
+    if (checkDigit == 10)
+        checkDigit = 0;
+    else if(checkDigit == 11)
+        checkDigit = 5;
+
+    return checkDigit;
+}
 // Implement all methods as public static
 
     public static void main(String[] args) {
